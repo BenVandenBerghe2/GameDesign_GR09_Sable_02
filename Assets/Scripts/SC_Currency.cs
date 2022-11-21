@@ -9,6 +9,8 @@ public class SC_Currency : MonoBehaviour
     private float money;
     public Text moneyText;
     public Text collectibleText;
+    private bool currencyUIBool;
+    [SerializeField] private GameObject currencyUIGameObject;
 
     public void AddMoney(float ammount)
     {
@@ -25,6 +27,11 @@ public class SC_Currency : MonoBehaviour
     {
         moneyText.text = "" + money;
         collectibleText.text = "" + collectible;
-    }
 
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            currencyUIBool = !currencyUIBool;
+            currencyUIGameObject.SetActive(currencyUIBool);
+        }
+    }
 }
