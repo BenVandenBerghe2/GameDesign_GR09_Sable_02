@@ -8,7 +8,6 @@ public class SC_SuggestButtonUI : MonoBehaviour
     [SerializeField] private Text buttonText;
     [SerializeField] private string buttonToPress;
 
-
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player")

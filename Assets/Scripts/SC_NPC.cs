@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class SC_NPC : MonoBehaviour
 {
@@ -10,13 +11,14 @@ public class SC_NPC : MonoBehaviour
     [SerializeField] private GameObject currencyGameObject;
     [SerializeField] private GameObject buttonGameObject;
     [SerializeField] private GameObject staminaGameObject;
+    [SerializeField] private GameObject cat;
     private int dialogueCount = 0;
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private Text nameText;
     public bool missionAccepted;
-    public bool catRetrieved;
+    public bool catCaptured;
+    private bool catSpawned;
 
-   
     private void Update()
     {  
         Dialogue();
@@ -31,6 +33,11 @@ public class SC_NPC : MonoBehaviour
             staminaGameObject.SetActive(false);
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
+        }
+
+        if (other.gameObject.tag == "Player" && Input.GetKey(KeyCode.E) && catCaptured)
+        {
+            dialogueCount = 2;
         }
     }
 
@@ -60,13 +67,23 @@ public class SC_NPC : MonoBehaviour
             text.text = "Oh player, my cat Fabricio has snucked into the old temple, would you be so kind to bring it to me?";
             buttonGameObject.gameObject.SetActive(true);
         }
-        if (dialogueCount > 2 && catRetrieved)
+        if (dialogueCount >= 2 && catCaptured)
         {
             nameText.text = "The Man In The Funny Hat";
             text.text = "Te como la cara, thank you very much!";
+            SpawnCat();
         }
     }
 
+    private void SpawnCat()
+    {
+        if (!catSpawned)
+        {
+            catSpawned = true;
+            Vector3 catLocation = new Vector3(transform.position.x + 3, transform.position.y - 1, transform.position.z + 3);
+            Instantiate(cat, catLocation, Quaternion.identity);
+        }        
+    }
 
     public void Yes()
     {
@@ -86,9 +103,9 @@ public class SC_NPC : MonoBehaviour
         dialogueGameObject.SetActive(false);
         currencyGameObject.SetActive(true);
         staminaGameObject.SetActive(true);
-        dialogueCount = 2;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        Destroy(buttonGameObject.gameObject);
     }
 
     private void ResetDialogue()
