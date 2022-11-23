@@ -23,8 +23,8 @@ Also jump into different plataforms precisely and glide.
 A few plataforms will be optional to reach (at least 1 or 2) with a collectible on it.
 
 Once infront of the temple the player will have to press a button to open the door.
-Inside the temple the player will see the car behind a door.
 In the actual room the player will have to pick up 3 different objects placed in paltaforms that they will have to reach and place them in the correct place.
+Inside the temple the player will see the car behind a door.
 After that the door will be openned. The cat will make a really uncanny sound or say something stupid and will be pickable.
 
 Once picked up the compass will change direction to the NPC.
