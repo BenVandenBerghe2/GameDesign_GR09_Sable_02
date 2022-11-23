@@ -18,7 +18,7 @@ public class SC_TPSController : MonoBehaviour
     private float crouchDivider = 2f;
 
     CharacterController characterController;
-    Vector3 moveDirection = Vector3.zero;
+    public Vector3 moveDirection = Vector3.zero;
     Vector2 rotation = Vector2.zero;
 
     [HideInInspector] public bool canMove = true;

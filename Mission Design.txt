@@ -1,0 +1,33 @@
+# GameDesign_GR09_Sable
+
+Mission Design
+
+The player start in a plane and has to move towards an NPC that is visible at first sight in an upper plataform. So the player will need to jump and climb to reach it.
+Once reached a pop up will show "Press X"
+Pressing the key will trigger the dialog and dialog system:
+      NPC: Oh player, my cat Fabricio has snucked into the old temple, would you be so kind to bring it to me?
+      Player: Yes
+          NPC: Excelent! I will wait for your here. You can use my old bike to get there is behind me.
+Pop up appear: "Rescue the cat"
+      Player: No
+          NPC: Me cago en tus muertos pisoteados.
+The Compass start showing a new icon with a cat shape.
+
+The old temple is at first sight from the NPC plataform, separated from the it trough a plain and a few mounds/slopes (desert like). 
+The plataform is in a small cliff so the player will have to jump from it, so they can use the gliding.
+When in the air a pop up will appear: "Press Y to glide"
+The bike will just behind the cliff, a little further to be on the gliding distance.
+
+After reaching the temple the player will have to climb to the base of it, where the door is. 
+Also jump into different plataforms precisely and glide.
+A few plataforms will be optional to reach (at least 1 or 2) with a collectible on it.
+
+Once infront of the temple the player will have to press a button to open the door.
+Inside the temple the player will see the car behind a door.
+In the actual room the player will have to pick up 3 different objects placed in paltaforms that they will have to reach and place them in the correct place.
+After that the door will be openned. The cat will make a really uncanny sound or say something stupid and will be pickable.
+
+Once picked up the compass will change direction to the NPC.
+Once the NPC is reached same pop up to intercat will appear. Once pressed the dialog will appear:
+  NPC: Te como la cara, thank you very much!
+  

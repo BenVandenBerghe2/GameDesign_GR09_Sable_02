@@ -6,6 +6,7 @@ public class SC_CameraCollision : MonoBehaviour
     public float collisionOffset = 0.3f; //To prevent Camera from clipping through Objects
     public float cameraSpeed = 15f; //How fast the Camera should snap into position if there are no obstacles
 
+
     Vector3 defaultPos;
     Vector3 directionNormalized;
     Transform parentTransform;
