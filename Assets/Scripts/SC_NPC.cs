@@ -18,6 +18,8 @@ public class SC_NPC : MonoBehaviour
     public bool missionAccepted;
     public bool catCaptured;
     private bool catSpawned;
+    [SerializeField]
+    private GameObject _Player;
 
     private void Update()
     {  
@@ -64,7 +66,7 @@ public class SC_NPC : MonoBehaviour
         if (dialogueCount == 1 && Input.GetKey(KeyCode.E))
         {
             nameText.text = "The Man In The Funny Hat";
-            text.text = "Oh player, my cat Fabricio has snucked into the old temple, would you be so kind to bring it to me?";
+            text.text = "Oh player, my cat Fabricio has snuck into the old temple, would you be so kind to bring it to me?";
             buttonGameObject.gameObject.SetActive(true);
         }
         if (dialogueCount >= 2 && catCaptured)
@@ -90,6 +92,7 @@ public class SC_NPC : MonoBehaviour
         text.text = "Excelent! I will wait for your here. You can use my old bike to get there is behind me.";
         //activate mission and compass
         missionAccepted = true;
+        _Player.GetComponent<SC_TPSController>().ObjectiveSet(cat.transform);
         buttonGameObject.gameObject.SetActive(false);
     }
     public void No()

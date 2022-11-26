@@ -624,6 +624,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8166770672100617515}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1997240284 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1929501025723862703, guid: af1e0c8a1a114e1448911e9f8fae8f3a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1929501025611129603}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2005190401 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7863524277250660802, guid: bb40f9bdf7cd0e3418e2aeebb565bc28,
@@ -636,12 +642,18 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1929501025611129603}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1997240284}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 886368cf49fd5784f9a5dab2e75b43ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &2034789809 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1929501025723862702, guid: af1e0c8a1a114e1448911e9f8fae8f3a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1929501025611129603}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2037995850 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1838356668617613229, guid: 5000cefc25a94f54abef8ef3f15906d4,
@@ -819,9 +831,19 @@ PrefabInstance:
       objectReference: {fileID: 133783089}
     - target: {fileID: 1929501025723862701, guid: af1e0c8a1a114e1448911e9f8fae8f3a,
         type: 3}
+      propertyPath: _Player
+      value: 
+      objectReference: {fileID: 1298740534}
+    - target: {fileID: 1929501025723862701, guid: af1e0c8a1a114e1448911e9f8fae8f3a,
+        type: 3}
       propertyPath: nameText
       value: 
       objectReference: {fileID: 488193175}
+    - target: {fileID: 1929501025723862701, guid: af1e0c8a1a114e1448911e9f8fae8f3a,
+        type: 3}
+      propertyPath: _Character
+      value: 
+      objectReference: {fileID: 1298740534}
     - target: {fileID: 1929501025723862701, guid: af1e0c8a1a114e1448911e9f8fae8f3a,
         type: 3}
       propertyPath: buttonGameObject
@@ -1158,6 +1180,11 @@ PrefabInstance:
       objectReference: {fileID: 2034789806}
     - target: {fileID: 3432142081344531325, guid: cecc9a7b27480d34fbb7b085d84fea33,
         type: 3}
+      propertyPath: _Player
+      value: 
+      objectReference: {fileID: 1298740534}
+    - target: {fileID: 3432142081344531325, guid: cecc9a7b27480d34fbb7b085d84fea33,
+        type: 3}
       propertyPath: buttonText
       value: 
       objectReference: {fileID: 2037995850}
@@ -1313,11 +1340,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3061140507659754261, guid: 244008b8d02bfb54e9d5ab5c71a5ae42,
+        type: 3}
+      propertyPath: Target
+      value: 
+      objectReference: {fileID: 2034789809}
+    - target: {fileID: 3061140507659754261, guid: 244008b8d02bfb54e9d5ab5c71a5ae42,
+        type: 3}
+      propertyPath: _target
+      value: 
+      objectReference: {fileID: 2034789809}
+    - target: {fileID: 3061140507659754261, guid: 244008b8d02bfb54e9d5ab5c71a5ae42,
+        type: 3}
+      propertyPath: _character
+      value: 
+      objectReference: {fileID: 1298740534}
+    - target: {fileID: 4602394199032788608, guid: 244008b8d02bfb54e9d5ab5c71a5ae42,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4602394199032788611, guid: 244008b8d02bfb54e9d5ab5c71a5ae42,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8166770671427387329, guid: 244008b8d02bfb54e9d5ab5c71a5ae42,
         type: 3}
       propertyPath: _glideSphere
       value: 
       objectReference: {fileID: 1373094968}
+    - target: {fileID: 8166770671427387329, guid: 244008b8d02bfb54e9d5ab5c71a5ae42,
+        type: 3}
+      propertyPath: _initialObjective
+      value: 
+      objectReference: {fileID: 1997240284}
     - target: {fileID: 8166770671427387329, guid: 244008b8d02bfb54e9d5ab5c71a5ae42,
         type: 3}
       propertyPath: glidingSpeedReduction

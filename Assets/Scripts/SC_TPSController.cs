@@ -8,14 +8,14 @@ public class SC_TPSController : MonoBehaviour
 
     [SerializeField] public float jumpSpeed = 8.0f;
     [SerializeField] public float glidingSpeedReduction = 5;
-    [SerializeField] private float climbSpeed = 1.5f;
+    [SerializeField] private float _climbSpeed = 1.5f;
 
     public float gravity = 20.0f;
     public Transform playerCameraParent;
     public float lookSpeed = 2.0f;
     public float lookXLimit = 60.0f;
     public float sprintMultiplier = 2f;
-    private float crouchDivider = 2f;
+    private float _crouchDivider = 2f;
 
     CharacterController characterController;
     public Vector3 moveDirection = Vector3.zero;
@@ -25,16 +25,24 @@ public class SC_TPSController : MonoBehaviour
     [HideInInspector] public bool canSprint = true;
     [HideInInspector] public bool canClimb = true;
 
-    [SerializeField] private GameObject glideSphere;
+    [SerializeField] private GameObject _glideSphere;
+    public Transform _target { set; get; }
+    private GameObject _compass;
+    [SerializeField]
+    private GameObject _initialObjective;
 
-    private SC_Currency currencyManager;
+    private SC_Currency _currencyManager;
 
-
+    private void Awake()
+    {
+        _target = _initialObjective.transform;
+    }
     void Start()
     {
         characterController = GetComponent<CharacterController>();
-        currencyManager = FindObjectOfType<SC_Currency>();
+        _currencyManager = FindObjectOfType<SC_Currency>();
         rotation.y = transform.eulerAngles.y;
+        _compass = transform.GetChild(3).gameObject;
     }
 
     void Update()
@@ -58,7 +66,7 @@ public class SC_TPSController : MonoBehaviour
             // Crouching
             if (Input.GetKeyDown(KeyCode.LeftControl) && canMove)
             {
-                curSpeedX /= crouchDivider;
+                curSpeedX /= _crouchDivider;
                 transform.localScale = new Vector3(1, 0.5f, 1);
             }
             else if (Input.GetKeyUp(KeyCode.LeftControl))
@@ -79,7 +87,7 @@ public class SC_TPSController : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) && !characterController.isGrounded && moveDirection.y < 0.1)
         {
             // Glidding visuals
-            glideSphere.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);
+            _glideSphere.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);
 
             //Reduced gravity
             moveDirection = (forward * curSpeedX);
@@ -93,7 +101,7 @@ public class SC_TPSController : MonoBehaviour
             moveDirection.y -= gravity * Time.deltaTime;
 
             // No gliding visual
-            glideSphere.transform.localScale = Vector3.zero;
+            _glideSphere.transform.localScale = Vector3.zero;
         }
 
         // Move the controller
@@ -105,14 +113,30 @@ public class SC_TPSController : MonoBehaviour
         rotation.x = Mathf.Clamp(rotation.x, -lookXLimit, lookXLimit);
         playerCameraParent.localRotation = Quaternion.Euler(rotation.x, 0, 0);
         transform.eulerAngles = new Vector2(0, rotation.y);
-    }
 
+        if (Input.GetKey(KeyCode.C) && !_compass.activeSelf)
+        {
+            _compass.SetActive(true);
+        }
+        else if (Input.GetKeyUp(KeyCode.C) && _compass.activeSelf)
+        {
+            _compass.SetActive(false);
+        }
+    }
+    public void ObjectiveSet(Transform NewTarget)
+    {
+        _target = NewTarget;
+    }
+    public Transform GetObjective()
+    {
+        return _target;
+    }
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
         // Climbing
         if (Input.GetKey(KeyCode.W) && hit.gameObject.tag == "Climbable" && canClimb)  //  && !characterController.isGrounded
         {
-            moveDirection.y = climbSpeed;
+            moveDirection.y = _climbSpeed;
 
             // drain stamina only if climbing (and being in the air)
             if (!characterController.isGrounded)
@@ -123,13 +147,13 @@ public class SC_TPSController : MonoBehaviour
         if (hit.gameObject.tag == "Pot")
         {
             Destroy(hit.gameObject);
-            currencyManager.AddMoney(50);
+            _currencyManager.AddMoney(50);
         }
         //PickUpCollectible
         if (hit.gameObject.tag == "Collectible")
         {
             Destroy(hit.gameObject);
-            currencyManager.AddCollectible(1);
+            _currencyManager.AddCollectible(1);
         }
     }
 }
