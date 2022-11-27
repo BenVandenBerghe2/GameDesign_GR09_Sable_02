@@ -53,9 +53,9 @@ public class SC_TPSController : MonoBehaviour
         float curSpeedX = canMove ? speed * Input.GetAxis("Vertical") : 0;
         float curSpeedY = canMove ? speed * Input.GetAxis("Horizontal") : 0;
         if (characterController.isGrounded)
-        {         
+        {
             //Sprint
-            if (Input.GetKey(KeyCode.LeftShift) && canMove)
+            if (Input.GetKey(KeyCode.LeftShift) && canMove && canSprint)
             {
                 curSpeedX *= sprintMultiplier;
 

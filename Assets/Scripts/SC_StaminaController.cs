@@ -40,7 +40,11 @@ public class SC_StaminaController : MonoBehaviour
 
             regen = StartCoroutine(RegenStamina());
         }
-        else StartCoroutine(WaitForRegen());
+        else
+        {
+            StartCoroutine(WaitForRegen());
+        }
+
     }
 
     private IEnumerator RegenStamina()
@@ -59,12 +63,9 @@ public class SC_StaminaController : MonoBehaviour
 
     private IEnumerator WaitForRegen()
     {
-        player.canMove = false;
         player.canSprint = false;
         player.canClimb = false;
-        yield return new WaitForSeconds(1.5f);
-        player.canMove = true;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         player.canSprint = true;
         player.canClimb = true;
     }
