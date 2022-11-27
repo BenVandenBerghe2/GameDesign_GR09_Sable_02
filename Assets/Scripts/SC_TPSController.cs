@@ -8,7 +8,7 @@ public class SC_TPSController : MonoBehaviour
 
     [SerializeField] public float jumpSpeed = 8.0f;
     [SerializeField] public float glidingSpeedReduction = 5;
-    [SerializeField] private float _climbSpeed = 1.5f;
+    [SerializeField] private float _climbSpeed = 4f;
 
     public float gravity = 20.0f;
     public Transform playerCameraParent;
@@ -60,7 +60,7 @@ public class SC_TPSController : MonoBehaviour
                 curSpeedX *= sprintMultiplier;
 
                 // drain stamina
-                SC_StaminaController.instance.UseStamina(.1f);
+                SC_StaminaController.instance.UseStamina(.05f);
             }
 
             // Crouching
@@ -140,7 +140,7 @@ public class SC_TPSController : MonoBehaviour
 
             // drain stamina only if climbing (and being in the air)
             if (!characterController.isGrounded)
-                SC_StaminaController.instance.UseStamina(.1f);
+                SC_StaminaController.instance.UseStamina(.05f);
         }
 
         //PickUpPot

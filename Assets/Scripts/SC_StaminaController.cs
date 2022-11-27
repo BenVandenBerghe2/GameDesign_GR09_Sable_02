@@ -54,7 +54,7 @@ public class SC_StaminaController : MonoBehaviour
         // regen stamina
         while (currentStamina < maxStamina)
         {
-            currentStamina += maxStamina / 100;
+            currentStamina += (maxStamina / 100) * 1.1f;
             staminaBar.value = currentStamina;
             yield return regenTick;
         }
