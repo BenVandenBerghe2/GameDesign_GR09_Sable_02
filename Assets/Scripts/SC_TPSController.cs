@@ -45,7 +45,7 @@ public class SC_TPSController : MonoBehaviour
         _compass = transform.GetChild(3).gameObject;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         // We are grounded, so recalculate move direction based on axes
         Vector3 forward = transform.TransformDirection(Vector3.forward);

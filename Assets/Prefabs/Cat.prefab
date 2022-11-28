@@ -833,7 +833,6 @@ GameObject:
   - component: {fileID: 3432142079611234759}
   - component: {fileID: 3432142081344531325}
   - component: {fileID: 3432142081344531324}
-  - component: {fileID: 3432142081344531326}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Untagged
@@ -884,7 +883,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   source: {fileID: 3432142081344531324}
   clip: {fileID: 8300000, guid: a0f9133a54a179c4083f356e3dfd3519, type: 3}
+  buttonText: {fileID: 0}
   npc: {fileID: 0}
+  _Player: {fileID: 0}
 --- !u!82 &3432142081344531324
 AudioSource:
   m_ObjectHideFlags: 0
@@ -981,20 +982,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &3432142081344531326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3432142081344531322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a965b20f75a7104fa94871d2a596361, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttonText: {fileID: 0}
-  buttonToPress: E
 --- !u!1 &3432142081506411175
 GameObject:
   m_ObjectHideFlags: 0

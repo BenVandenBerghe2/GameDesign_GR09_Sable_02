@@ -12,6 +12,7 @@ public class SC_NPC : MonoBehaviour
     [SerializeField] private GameObject buttonGameObject;
     [SerializeField] private GameObject staminaGameObject;
     [SerializeField] private GameObject cat;
+    [SerializeField] private GameObject catLocation;
     private int dialogueCount = 0;
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private Text nameText;
@@ -20,6 +21,9 @@ public class SC_NPC : MonoBehaviour
     private bool catSpawned;
     [SerializeField]
     private GameObject _Player;
+
+    [SerializeField]
+    private SC_Currency _currency;
 
     private void Update()
     {  
@@ -72,8 +76,9 @@ public class SC_NPC : MonoBehaviour
         if (dialogueCount >= 2 && catCaptured)
         {
             nameText.text = "The Man In The Funny Hat";
-            text.text = "Te como la cara, thank you very much!";
+            text.text = "Te como la cara, thank you very much! You can have this money";
             SpawnCat();
+            _currency.AddMoney(50);
         }
     }
 
@@ -89,10 +94,10 @@ public class SC_NPC : MonoBehaviour
 
     public void Yes()
     {
-        text.text = "Excelent! I will wait for your here. You can use my old bike to get there is behind me.";
+        text.text = "Excelent! I will wait for your here. You can use my old bike to get there, is in front of me.";
         //activate mission and compass
         missionAccepted = true;
-        _Player.GetComponent<SC_TPSController>().ObjectiveSet(cat.transform);
+        _Player.GetComponent<SC_TPSController>().ObjectiveSet(catLocation.transform);
         buttonGameObject.gameObject.SetActive(false);
     }
     public void No()

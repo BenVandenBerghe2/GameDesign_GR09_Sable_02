@@ -7,7 +7,7 @@ public class SC_StaminaController : MonoBehaviour
 {
     public Slider staminaBar;
 
-    private int maxStamina = 100;
+    [SerializeField] private int maxStamina = 100;
     private float currentStamina;
 
     private WaitForSeconds regenTick = new WaitForSeconds(.1f);
